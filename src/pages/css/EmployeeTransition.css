@@ -1,0 +1,289 @@
+/* TransactionForm.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #3a7bd5;
+  --primary-light: #4e8cde;
+  --secondary-color: #00d2ff;
+  --dark-color: #2d3748;
+  --light-color: #f7fafc;
+  --gray-color: #a0aec0;
+  --danger-color: #e53e3e;
+  --success-color: #38a169;
+  --warning-color: #ed8936;
+  --info-color: #4299e1;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Transaction Container */
+.transaction-container {
+  width: 90%;
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow-xl);
+  padding: 2rem;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transform: rotateX(2deg);
+  transition: transform 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.transaction-container:hover {
+  transform: rotateX(0deg);
+}
+
+/* Header Section */
+.transaction-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.transaction-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 2px;
+}
+
+/* Form Elements */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 0.5rem;
+}
+
+.input-group input {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(58, 123, 213, 0.2);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+/* Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: var(--shadow);
+  letter-spacing: 0.5px;
+}
+
+.primary-button {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  color: white;
+}
+
+.secondary-button {
+  background: linear-gradient(90deg, var(--info-color), #63b3ed);
+  color: white;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.button:active {
+  transform: translateY(-1px);
+}
+
+.fetch-button {
+  margin-bottom: 1.5rem;
+}
+
+/* Customer Info Card */
+.customer-card {
+  background: linear-gradient(135deg, #f8fafc, #edf2f7);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.customer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.customer-info {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.info-label {
+  font-weight: 600;
+  color: var(--dark-color);
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.info-value {
+  color: var(--dark-color);
+}
+
+.balance-amount {
+  font-weight: 700;
+  color: var(--success-color);
+}
+
+/* Messages */
+.message {
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.success-message {
+  background-color: rgba(56, 161, 105, 0.1);
+  border-left: 4px solid var(--success-color);
+  color: var(--success-color);
+}
+
+.error-message {
+  background-color: rgba(229, 62, 62, 0.1);
+  border-left: 4px solid var(--danger-color);
+  color: var(--danger-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-animation {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Submit Button Section */
+.submit-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .transaction-container {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  
+  .transaction-title {
+    font-size: 1.8rem;
+  }
+  
+  .submit-section {
+    justify-content: center;
+  }
+}
+
+/* Fancy Currency Symbol */
+.currency-input {
+  position: relative;
+}
+
+.currency-input input {
+  padding-left: 2rem;
+}
+
+.currency-symbol {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 600;
+  color: var(--gray-color);
+}
+
+/* Balance Display */
+.balance-display {
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background-color: rgba(56, 161, 105, 0.1);
+  display: inline-block;
+}
+
+/* Transaction Status */
+.transaction-status {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-updated {
+  background-color: rgba(56, 161, 105, 0.1);
+  color: var(--success-color);
+}
+
+.status-updated .status-icon {
+  background-color: var(--success-color);
+}
+
+.status-pending {
+  background-color: rgba(237, 137, 54, 0.1);
+  color: var(--warning-color);
+}
+
+.status-pending .status-icon {
+  background-color: var(--warning-color);
+}
