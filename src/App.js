@@ -17,7 +17,7 @@ function AppContent() {
           <Routes>
             <Route path="/" element={<WelcomePage />} />
 
-            <Route path="/webscraper" element={<Webscraper />} />
+            <Route path="/alysis" element={<Webscraper />} />
           </Routes>
         </div>
         <Footer />
