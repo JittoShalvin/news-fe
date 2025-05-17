@@ -64,7 +64,7 @@ const Navbar = () => {
 
           <li className="nav-item">
             <Link
-              to="/webscraper"
+              to="/alysis"
               className={location.pathname === "/webscraper" ? "nav-link active" : "nav-link"}
               onClick={() => setIsMenuOpen(false)}
             >
