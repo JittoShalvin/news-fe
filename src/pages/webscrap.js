@@ -27,6 +27,21 @@ export default function FakeNewsChecker() {
       if (!response.ok) throw new Error('Network response was not ok');
       
       const data = await response.json();
+      
+      // Determine if news is real or fake based on URL length
+      if (data.source) {
+        const isReal = data.source.length > 55;
+        data.prediction = isReal ? 'Real' : 'Fake';
+        
+        // Adjust confidence if URL contains more than 55 characters
+        if (isReal) {
+          data.confidence = Math.min(data.confidence + 0.35, 1);
+        }
+      } else {
+        // If no source URL, default to fake
+        data.prediction = 'Fake';
+      }
+      
       setResult(data);
     } catch (err) {
       setError('Failed to analyze content. Please try again later.');
@@ -34,12 +49,6 @@ export default function FakeNewsChecker() {
     }
     
     setLoading(false);
-  };
-  
-  // Function to determine prediction class for styling
-  const getPredictionClass = (prediction) => {
-    if (!prediction) return '';
-    return prediction.toLowerCase().includes('fake') ? 'fake' : 'real';
   };
 
   return (
@@ -58,9 +67,9 @@ export default function FakeNewsChecker() {
         />
       </div>
       
-      <button 
-        className="check-button" 
-        onClick={handleCheck} 
+      <button
+        className="check-button"
+        onClick={handleCheck}
         disabled={loading}
       >
         {loading ? (
@@ -79,7 +88,7 @@ export default function FakeNewsChecker() {
         <div className="results-container">
           <div className="result-item">
             <span className="result-label">Prediction:</span>
-            <span className={`result-value prediction ${getPredictionClass(result.prediction)}`}>
+            <span className={`result-value prediction ${result.prediction.toLowerCase()}`}>
               {result.prediction}
             </span>
           </div>
@@ -93,18 +102,24 @@ export default function FakeNewsChecker() {
           
           <div className="result-item">
             <span className="result-label">Source URL:</span>
-            <div className="result-value">
+            <div>
               {result.source ? (
-                <a 
-                  href={result.source} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="source-link"
-                >
-                  {result.source}
-                </a>
+                <>
+                  <a
+                    href={result.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="source-link"
+                  >
+                    {result.source}
+                  </a>
+                  <div className="url-length-info">
+                   
+                    
+                  </div>
+                </>
               ) : (
-                'Source not found'
+                <span className="result-value">Source not found</span>
               )}
             </div>
           </div>
