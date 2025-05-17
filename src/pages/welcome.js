@@ -7,7 +7,7 @@ const FakeNewsDetector = () => {
   const navigate = useNavigate();
 
   const redirectToAnalysis = () => {
-    navigate('/webscraper');
+    navigate('/anlysis');
   };
 
   // Create an SVG illustration as a fallback
