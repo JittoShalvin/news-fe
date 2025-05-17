@@ -1,13 +1,15 @@
 /* Footer styles for TruthSeeker - Dark Theme */
 .app-footer {
-  background-color: var(--bg-secondary);
+  background-color: #121212;
   padding: 2rem 1.5rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid #2a2a2a;
+  color: #e0e0e0;
 }
 
 .footer-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
@@ -17,17 +19,27 @@
   .footer-container {
     flex-direction: row;
     justify-content: space-between;
+    align-items: flex-start;
   }
 }
 
 .footer-logo {
   margin-bottom: 2rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-logo {
+    text-align: left;
+    width: 25%;
+    margin-bottom: 0;
+  }
 }
 
 .footer-logo h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  background: linear-gradient(90deg, var(--primary-light), var(--success-light));
+  background: linear-gradient(90deg, #4da9ff, #41f097);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -35,24 +47,33 @@
 
 .footer-logo .tagline {
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: #a0a0a0;
 }
 
 .footer-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 2.5rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-links {
+    text-align: right;
+    width: 25%;
+  }
 }
 
 .footer-section h4 {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #ffffff;
   margin-bottom: 1rem;
 }
 
 .footer-section ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-section ul li {
@@ -60,23 +81,49 @@
 }
 
 .footer-section ul li a {
-  color: var(--text-tertiary);
+  color: #a0a0a0;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .footer-section ul li a:hover {
-  color: var(--primary-light);
+  color: #4da9ff;
+}
+
+.map-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .map-container {
+    width: 40%;
+    margin: 0;
+  }
+}
+
+.map-container iframe {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+}
+
+.dark-map {
+  filter: invert(90%) hue-rotate(180deg);
 }
 
 .disclaimer {
   max-width: 800px;
   margin: 2rem auto 0;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid #2a2a2a;
   text-align: center;
   font-size: 0.875rem;
-  color: var(--text-tertiary);
+  color: #a0a0a0;
 }
 
 .copyright {
