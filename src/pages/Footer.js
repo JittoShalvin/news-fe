@@ -29,9 +29,7 @@ const Footer = () => {
             <h4>Links</h4>
             <ul>
               <li><a href="/">Home</a></li>
-              <li><a href="/analysis">URL Analysis</a></li>
-              <li><a href="/about">About Us</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li><a href="/alysis">News Analysis</a></li>
             </ul>
           </div>
         </div>
